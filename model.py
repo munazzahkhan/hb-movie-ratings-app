@@ -34,7 +34,7 @@ class Movie(db.Model):
                         primary_key=True)
     title = db.Column(db.String)
     overview = db.Column(db.Text)
-    release_date = db.Column(db.DateTime)
+    release_date = db.Column(db.DateTime, default = datetime.now())
     poster_path = db.Column(db.String)
 
     # ratings = a list of Rating objects
