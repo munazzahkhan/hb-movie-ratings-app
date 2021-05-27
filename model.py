@@ -3,6 +3,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+
 db = SQLAlchemy()
 
 
@@ -41,7 +42,7 @@ class Movie(db.Model):
     def __repr__(self):
         return f'<Movie movie_id={self.movie_id} title={self.title} overview={self.overview} release_date={self.release_date} poster_path={self.poster_path}>'
 
-class Ratings(db.Model):
+class Rating(db.Model):
     """A rating."""
 
     __tablename__ = "ratings"
@@ -57,7 +58,7 @@ class Ratings(db.Model):
     user = db.relationship('User', backref='ratings')
 
     def __repr__(self):
-        return f'<Ratings rating_id={self.rating_id} score={self.score}>'
+        return f'<Rating rating_id={self.rating_id} score={self.score}>'
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
