@@ -15,6 +15,25 @@ def create_user(email, password):
 
     return user
 
+
+def get_users():
+    """Return all movies."""
+
+    return User.query.all()
+
+
+def get_user_by_id(user_id):
+    """Return user details."""
+
+    return User.query.get(user_id)
+
+
+def get_user_by_email(email):
+    """Return a user by email."""
+
+    return User.query.filter(User.email == email).first()
+
+
 def create_movie(title, overview, release_date, poster_path):
     """Create and return a new movie."""
 
@@ -27,6 +46,18 @@ def create_movie(title, overview, release_date, poster_path):
     db.session.commit()
 
     return movie
+
+
+def get_movies():
+    """Return all movies."""
+
+    return Movie.query.all()
+
+def get_movie_by_id(movie_id):
+    """Return movie details."""
+
+    return Movie.query.get(movie_id)
+
 
 def create_rating(user, movie, score):
     """Create and return a new rating."""
